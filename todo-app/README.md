@@ -9,11 +9,22 @@
 - [ ] 카테고리 분류
 - [ ] 로컬 스토리지 저장
 
-## 💻 사용 기술
+## 💻 기술 스택
 
 - React
+- Vite
+- Tailwind CSS
 - shadcn/ui
-- JavaScript
+
+## 🛠️ 설치 및 실행
+
+```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+```
 
 ## 📝 개발 일지
 
@@ -21,16 +32,11 @@
 
 #### ✨ 오늘의 작업
 
-- 초기 프로젝트 설정
-- 기본 폴더 구조 생성
-- README.md 작성
+- Vite + React 프로젝트 생성
+- Tailwind CSS 설정
+- shadcn/ui 컴포넌트 설치
 
 #### 📚 학습 내용
 
-- React 프로젝트 구조 설계 방법
-- GitHub 레포지토리 관리
-
-#### ⚡ 다음 작업
-
-- [ ] 컴포넌트 구조 설계
-- [ ] Todo 입력 폼 만들기
+- Vite 프로젝트 설정 방법 학습
+- Tailwind CSS와 shadcn/ui 설치 및 설정

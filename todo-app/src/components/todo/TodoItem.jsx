@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
@@ -28,4 +28,14 @@ export const TodoItem = ({ todo, onToggle, onDelete }) => {
       </Button>
     </div>
   );
+};
+
+TodoItem.propTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    text: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired
+  }).isRequired,
+  onToggle: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
 };

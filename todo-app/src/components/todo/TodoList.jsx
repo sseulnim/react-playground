@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { TodoItem } from './TodoItem';
 
 export const TodoList = ({ todos, onToggle, onDelete }) => {
@@ -14,4 +14,16 @@ export const TodoList = ({ todos, onToggle, onDelete }) => {
       ))}
     </div>
   );
+};
+
+TodoList.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      text: PropTypes.string.isRequired,
+      completed: PropTypes.bool.isRequired
+    })
+  ).isRequired,
+  onToggle: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
 };

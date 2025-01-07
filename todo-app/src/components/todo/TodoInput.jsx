@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -25,4 +26,8 @@ export const TodoInput = ({ onAdd }) => {
       <Button type="submit">추가</Button>
     </form>
   );
+};
+
+TodoInput.propTypes = {
+  onAdd: PropTypes.func.isRequired
 };

@@ -9,8 +9,10 @@ export const TodoItem = ({ todo, onToggle, onDelete, onUpdate }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(todo.text);
 
-  const handleDoubleClick = () => {
-    setIsEditing(true);
+  const handleDoubleClick = (e) => {
+    if (!e.target.closest('button') && !e.target.closest('[role="checkbox"]')) {
+      setIsEditing(true);
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -35,7 +37,7 @@ export const TodoItem = ({ todo, onToggle, onDelete, onUpdate }) => {
 
   return (
     <div className="flex items-center justify-between p-4 border rounded-lg">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 flex-1" onDoubleClick={handleDoubleClick}>
         <Checkbox
           checked={todo.completed}
           onCheckedChange={() => onToggle(todo.id)}
@@ -54,7 +56,6 @@ export const TodoItem = ({ todo, onToggle, onDelete, onUpdate }) => {
           <label
             htmlFor={`todo-${todo.id}`}
             className={`${todo.completed ? 'line-through text-gray-500' : ''}`}
-            onDoubleClick={handleDoubleClick}
           >
             {todo.text}
           </label>
@@ -75,7 +76,8 @@ TodoItem.propTypes = {
   todo: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     text: PropTypes.string.isRequired,
-    completed: PropTypes.bool.isRequired
+    completed: PropTypes.bool.isRequired,
+    categoryId: PropTypes.number
   }).isRequired,
   onToggle: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,

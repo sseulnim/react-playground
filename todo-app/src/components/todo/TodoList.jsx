@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { TodoItem } from './TodoItem';
 
-export const TodoList = ({ todos, onToggle, onDelete }) => {
+export const TodoList = ({ todos, onToggle, onDelete, onUpdate }) => {
   return (
     <div className="space-y-2">
       {todos.map(todo => (
@@ -10,6 +10,7 @@ export const TodoList = ({ todos, onToggle, onDelete }) => {
           todo={todo}
           onToggle={onToggle}
           onDelete={onDelete}
+          onUpdate={onUpdate}
         />
       ))}
     </div>
@@ -25,5 +26,6 @@ TodoList.propTypes = {
     })
   ).isRequired,
   onToggle: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired
+  onDelete: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired
 };
